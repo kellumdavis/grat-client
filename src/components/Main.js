@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import People from '../pages/People'
+import Users from '../pages/Users'
 import Show from '../pages/Show';
-import Users from '../pages/Users';
+
 
 function Main(props) {
     return (
