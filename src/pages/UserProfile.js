@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
 
 const UserProfile = () => {
-    const history = useNavigate()
+    const navigate = useNavigate()
 
     async function populateQuote() {
        const req = await fetch('http://localhost:4000/api/user', {
@@ -22,7 +22,7 @@ const UserProfile = () => {
             const user = jwt.decode(token)
             if (!user) {
                 localStorage.removeItem('token')
-                history.replace( '/login')
+                navigate('login', { replace: true } );
             } else {
                 populateQuote()
             }

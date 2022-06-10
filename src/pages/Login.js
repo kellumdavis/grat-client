@@ -22,7 +22,7 @@ function Register() {
 
         if (data.user) {
             alert('Login succesful')
-            window.location.href = '/userProfile'
+            window.location.href = '/user'
         } else {
             alert('Please check your username and password')
         }
