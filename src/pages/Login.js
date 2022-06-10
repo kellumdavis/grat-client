@@ -20,7 +20,12 @@ function Register() {
 
         const data = await response.json()
 
-        console.log(data)
+        if (data.user) {
+            alert('Login succesful')
+            window.location.href = '/userProfile'
+        } else {
+            alert('Please check your username and password')
+        }
     }
 
     return(
