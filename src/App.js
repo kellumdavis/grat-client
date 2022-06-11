@@ -6,6 +6,7 @@ import Register from "./pages/Register"
 import {Route, Routes} from "react-router-dom";
 import Login from './pages/Login'
 import UserProfile from "./pages/UserProfile";
+import Posts from "./pages/Posts";
 function App() {
   const URL = "http://localhost:3000";
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/user" element={<UserProfile />} />
+        <Route path="/posts" element={<Posts />} />
       </Routes>
     </div>
   );

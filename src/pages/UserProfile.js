@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 
 const UserProfile = () => {
     const navigate = useNavigate()
-    const [quote, setQuote] = useState('')
+    const [quote, setQuote] = useState(null)
     const [tempQuote, setTempQuote] = useState('')
 
     async function populateQuote() {
@@ -16,11 +16,8 @@ const UserProfile = () => {
        })
 
        const data = await req.json()
-       if(data.status === 'ok') {
-           setQuote(data.quote)
-       } else {
-           alert(data.error)
-       }
+    //    console.log(data)
+       setQuote(data.quote)
     }
 
     useEffect(() => {
@@ -38,7 +35,7 @@ const UserProfile = () => {
 
     async function updateQuote(event) {
         event.preventDefault()
-        const req = await fetch('http://localhost:4000/api/user', {
+        const req = await fetch('http://localhost:4000/api/posts', {
             method: 'POST',
            headers: {
                'Content-Type': 'application/json',
@@ -58,9 +55,19 @@ const UserProfile = () => {
        }
     }
 
+    function loaded() {
+        if (quote.length == 0) return null
+        console.log({quote})
+        return (
+            <div>
+                {quote[0].body}
+            </div>
+        )
+    }
+
     return(
         <div>
-        <h1>Your qupte: {quote || 'No quote found'}</h1>
+        {quote ? loaded() : <h1>No quotes yet!</h1>}
         <form onSubmit={updateQuote}>
             <input type="text"
              placeholder="Quote"
