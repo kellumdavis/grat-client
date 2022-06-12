@@ -7,6 +7,7 @@ import {Route, Routes} from "react-router-dom";
 import Login from './pages/Login'
 import UserProfile from "./pages/UserProfile";
 import Posts from "./pages/Posts";
+import SinglePostPage from "./pages/SinglePostPage";
 function App() {
   const URL = "http://localhost:3000";
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/user" element={<UserProfile />} />
         <Route path="/posts" element={<Posts />} />
+        <Route path="/posts/:id" element={<SinglePostPage />} />
       </Routes>
     </div>
   );
