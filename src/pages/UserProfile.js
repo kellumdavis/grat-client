@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import jwt from 'jsonwebtoken';
+import Navbar from '../components/Navbar/Header';
 
 
 const UserProfile = () => {
     const navigate = useNavigate()
     const [quote, setQuote] = useState(null)
     const [tempQuote, setTempQuote] = useState('')
-
+   
     async function populateQuote() {
        const req = await fetch('http://localhost:4000/api/user', {
            headers: {
@@ -71,19 +72,23 @@ const UserProfile = () => {
     }
 
     return(
-        <div className='formContainer'>
-        <h1></h1>
+        <>
+        <Navbar />
+        <div className='homeContainer'>
+            <img src="https://fontmeme.com/permalink/220613/a8f1c9b39495f1ed86f96aa2edf6caa3.png"></img>
+        <h1>What are you Grateful for today User?</h1>
         {quote ? loaded() : <h1>No quotes yet!</h1>}
         <form  onSubmit={updateQuote}>
-        <p>{tempQuote.name}</p>
+        {/* <p>{data.name}</p> */}
             <input type="text"
-             placeholder="Quote"
+             placeholder="What are you grateful for today?"
              value={tempQuote}
              onChange={(e) => setTempQuote(e.target.value)}
              />
-             <input type="submit" value="Update quote" />
+             <input className='buttonForm' type="submit" value="Post" />
         </form>
         </div>
+        </>
     )
 }
 

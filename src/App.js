@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, {useState} from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Register from "./pages/Register"
@@ -9,8 +9,12 @@ import UserProfile from "./pages/UserProfile";
 import Posts from "./pages/Posts";
 import SinglePostPage from "./pages/SinglePostPage";
 import Home from "./pages/Home";
+
 function App() {
   const URL = "http://localhost:3000";
+
+
+
   return (
     <div className="App">
       <Routes>

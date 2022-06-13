@@ -68,7 +68,7 @@ body{
 .posts{
     margin: 10px;
     padding:10px;
-    border-bottom: 5px solid #59A96A;
+    border: 5px solid #59A96A;
     border-radius: 10px;
     box-shadow: 5px 5px 5px;
 }

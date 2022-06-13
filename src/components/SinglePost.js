@@ -19,7 +19,7 @@ function SinglePost(props) {
       
       <p>{post.userId.name}</p>
       <p>{post.body}</p>
-        <p>{post.createdAt}</p>
+        <p>{post.createdAt.substring(0,10)}</p>
       <Link  to={`/posts/${post._id}`}>
        <button className="buttonForm" >Edit</button>
       </Link>

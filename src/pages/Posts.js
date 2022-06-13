@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Navbar from "../components/Navbar/Header";
 import SinglePost from "../components/SinglePost";
 
 function Posts(props) {
@@ -13,7 +14,7 @@ function Posts(props) {
     });
 
     const data = await response.json();
-    console.log(data)
+    console.log(data);
     setPosts(data.posts);
   };
 
@@ -22,12 +23,15 @@ function Posts(props) {
   }, []);
   console.log(posts);
   return (
-    <div className="postContainer">
-      <h1>All Posts</h1>
-      {posts.map((post) => (
-        <SinglePost onDeleteSuccess={getPosts} post={post} />
-      ))}
-    </div>
+    <>
+      <Navbar />
+      <div className="postContainer">
+        <h1>All Posts</h1>
+        {posts.map((post) => (
+          <SinglePost onDeleteSuccess={getPosts} post={post} />
+        ))}
+      </div>
+    </>
   );
 }
 
