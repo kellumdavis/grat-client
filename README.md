@@ -1,4 +1,4 @@
-###GRATTITUDE
+### GRATTITUDE
 
 
 ![image](https://user-images.githubusercontent.com/21118840/173286734-4c76456b-af5c-4c6a-8e3d-a22268aa5532.png)
