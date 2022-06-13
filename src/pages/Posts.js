@@ -13,6 +13,7 @@ function Posts(props) {
     });
 
     const data = await response.json();
+    console.log(data)
     setPosts(data.posts);
   };
 
@@ -21,7 +22,7 @@ function Posts(props) {
   }, []);
   console.log(posts);
   return (
-    <div>
+    <div className="postContainer">
       <h1>All Posts</h1>
       {posts.map((post) => (
         <SinglePost onDeleteSuccess={getPosts} post={post} />

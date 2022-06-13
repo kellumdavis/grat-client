@@ -15,12 +15,15 @@ function SinglePost(props) {
 
   const onEdit = async () => {};
   return (
-    <div>
+    <div className="posts">
+      
+      <p>{post.userId.name}</p>
       <p>{post.body}</p>
-      <Link to={`/posts/${post._id}`}>
-       Edit
+        <p>{post.createdAt}</p>
+      <Link  to={`/posts/${post._id}`}>
+       <button className="buttonForm" >Edit</button>
       </Link>
-      <button type="button" onClick={onDelete}>
+      <button className="buttonForm" type="button" onClick={onDelete}>
         Delete
       </button>
     </div>

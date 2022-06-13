@@ -30,9 +30,9 @@ function Register() {
     }
 
     return(
-        <div>
+        <div className="formContainer">
+            <form className="form" onSubmit={loginUser}>
         <h1>Login</h1>
-            <form onSubmit={loginUser}>
                 
                 <input 
                 value={email} 
@@ -46,7 +46,7 @@ function Register() {
                 type="password"
                 placeholder="Password"
                 />
-            <input type="submit" value="Register" />
+            <input className="buttonForm" type="submit" value="Login" />
             </form>
         </div>
     )

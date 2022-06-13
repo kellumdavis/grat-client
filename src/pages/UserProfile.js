@@ -24,6 +24,7 @@ const UserProfile = () => {
         const token = localStorage.getItem('token')
         if (token) {
             const user = jwt.decode(token)
+            console.log(user)
             if (!user) {
                 localStorage.removeItem('token')
                 navigate('login', { replace: true } );
@@ -35,6 +36,9 @@ const UserProfile = () => {
 
     async function updateQuote(event) {
         event.preventDefault()
+        // const data = await JSON.parse(
+        //     localStorage.getItem('chat-app-user')
+        //   );
         const req = await fetch('http://localhost:4000/api/posts', {
             method: 'POST',
            headers: {
@@ -43,6 +47,7 @@ const UserProfile = () => {
            },
            body: JSON.stringify({
                 quote: tempQuote,
+                
            }),
        })
 
@@ -66,9 +71,11 @@ const UserProfile = () => {
     }
 
     return(
-        <div>
+        <div className='formContainer'>
+        <h1></h1>
         {quote ? loaded() : <h1>No quotes yet!</h1>}
-        <form onSubmit={updateQuote}>
+        <form  onSubmit={updateQuote}>
+        <p>{tempQuote.name}</p>
             <input type="text"
              placeholder="Quote"
              value={tempQuote}

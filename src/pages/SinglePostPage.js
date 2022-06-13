@@ -10,7 +10,7 @@ function SinglePostPage(props){
     const onSave = async (event) => {
         event.preventDefault()
         const response = await fetch(`http://localhost:4000/api/posts/${id}`, {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'x-access-token': localStorage.getItem('token')
